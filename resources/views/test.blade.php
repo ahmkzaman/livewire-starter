@@ -1,7 +1,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
+<h2>Welcome Admin</h2>
+<a href="{{route('dashboard')}}"></a>
+<form method="POST" action="{{route('logout')}}">@csrf <button>Logout</button> </form>
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
  
