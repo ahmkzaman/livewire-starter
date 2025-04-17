@@ -1,7 +1,9 @@
 <?php
 
+use Faker\Provider\ar_EG\Payment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +30,11 @@ Route::get('/dashboard', function () {
 Route::get('/test', function () {
     return view('test');
 })->name('test')->middleware('admin');
+
+//payment route
+Route::get('payment', [PaymentController::class, 'payment'])->name('payment');
+Route::match(['get', 'post'], 'success', [PaymentController::class, 'success'])->name('success');
+
+Route::match(['get', 'post'], 'fail', [PaymentController::class, 'fail'])->name('fail');
+
+Route::get('cancel', [PaymentController::class, 'cancel'])->name('cancel');
